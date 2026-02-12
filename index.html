@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHANHPC KEY</title>
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0f;
+            font-family: 'Segoe UI', 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background effect */
+        .bg-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 70, 70, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 70, 70, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 550px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #101014;
+            border: 1.5px solid rgba(255, 70, 70, 0.5);
+            border-radius: 40px;
+            padding: 45px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 70, 70, 0.2);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: #ff4646;
+            box-shadow: 0 0 30px rgba(255, 70, 70, 0.2);
+        }
+
+        /* Avatar */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(145deg, #ff4646, #d63a3a);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 70, 70, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .sub {
+            color: #a0a0b0;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid rgba(255, 70, 70, 0.3);
+            padding-bottom: 20px;
+        }
+
+        /* Key Display */
+        .key-section {
+            background: #060608;
+            border-radius: 24px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #2a2a35;
+        }
+
+        .key-label {
+            color: #ff4646;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .key-label i {
+            font-size: 16px;
+        }
+
+        .key-box {
+            background: #000000;
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid #33333f;
+        }
+
+        .key-text {
+            font-family: 'Courier New', monospace;
+            font-size: 30px;
+            font-weight: 700;
+            color: #7bed9f;
+            text-align: center;
+            letter-spacing: 6px;
+            word-break: break-all;
+            text-shadow: 0 0 8px rgba(123, 237, 159, 0.3);
+            padding: 5px;
+            background: #0c0c10;
+            border-radius: 12px;
+            border: 1px dashed #7bed9f;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .key-text:hover {
+            background: #111116;
+            border-color: #ff4646;
+        }
+
+        .copy-hint {
+            color: #70a1ff;
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0.9;
+        }
+
+        /* Button */
+        .btn-youtube {
+            background: #ff4646;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 20px 30px;
+            width: 100%;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: 0.25s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 0 #a12a2a;
+            position: relative;
+            top: 0;
+        }
+
+        .btn-youtube i {
+            font-size: 32px;
+        }
+
+        .btn-youtube:hover {
+            background: #ff5e5e;
+            transform: translateY(-3px);
+            box-shadow: 0 11px 0 #a12a2a;
+        }
+
+        .btn-youtube:active {
+            transform: translateY(8px);
+            box-shadow: 0 0px 0 #a12a2a;
+        }
+
+        .btn-youtube:disabled {
+            opacity: 0.6;
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #a12a2a;
+            cursor: not-allowed;
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0 10px;
+            color: #70a1ff;
+            font-size: 18px;
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+            font-size: 24px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Status */
+        .status {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            background: rgba(20, 20, 30, 0.7);
+            color: #a0a0b0;
+            border: 1px solid #2a2a35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .status i {
+            color: #70a1ff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            color: #5a5a6a;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effect"></div>
+    
+    <div class="container">
+        <div class="card">
+            <!-- Avatar -->
+            <div class="avatar">
+                <i class="fas fa-skull"></i>
+            </div>
+
+            <!-- Title -->
+            <h1>KHANHPC</h1>
+            <div class="sub">PREMIUM HACK</div>
+
+            <!-- Key Display -->
+            <div class="key-section">
+                <div class="key-label">
+                    <i class="fas fa-key"></i> KEY GENERATOR
+                </div>
+                <div class="key-box">
+                    <div class="key-text" id="keyDisplay" onclick="copyKey()">
+                        **********
+                    </div>
+                </div>
+                <div class="copy-hint" id="copyHint">
+                    <i class="fas fa-clipboard"></i> Click vào key để copy
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner"></i> ĐANG TẠO KEY, VUI LÒNG CHỜ...
+            </div>
+
+            <!-- YouTube Button -->
+            <a href="https://www.youtube.com/channel/UCEShobjY7yHzJ3Wardfdd4A?sub_confirmation=1" 
+               target="_blank" 
+               id="youtubeLink" 
+               style="display: none;">
+            </a>
+            <button class="btn-youtube" id="getKeyBtn" onclick="handleGetKey()">
+                <i class="fab fa-youtube"></i> LẤY KEY
+            </button>
+
+            <!-- Status -->
+            <div class="status" id="status">
+                <i class="fas fa-info-circle"></i> Nhấn "LẤY KEY" để nhận key ngẫu nhiên
+            </div>
+            
+            <div class="footer">
+                <i class="fas fa-shield-alt"></i> 1 KEY / 1 LẦN • CLICK TO COPY
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============ DANH SÁCH KEY ============
+        const KEYS = [
+            "ABCD1-EFGH2-IJKL3-MNOP4",
+            "QRST5-UVWX6-YZAB7-CDEF8",
+            "GHIJ9-KLMN0-OPQR1-STUV2",
+            "WXYZ3-ABCD4-EFGH5-IJKL6",
+            "MNOP7-QRST8-UVWX9-YZAB0",
+            "KHANH-PC01-AAAAA-11111",
+            "KHANH-PC02-BBBBB-22222",
+            "KHANH-PC03-CCCCC-33333",
+            "KHANH-PC04-DDDDD-44444",
+            "KHANH-PC05-EEEEE-55555"
+        ];
+
+        let timeoutId = null;
+
+        // ============ HÀM XỬ LÝ NÚT LẤY KEY ============
+        function handleGetKey() {
+            const btn = document.getElementById('getKeyBtn');
+            const loading = document.getElementById('loading');
+            const status = document.getElementById('status');
+            const keyDisplay = document.getElementById('keyDisplay');
+            const youtubeLink = document.getElementById('youtubeLink');
+            
+            // 1. Disable nút, hiện loading
+            btn.disabled = true;
+            loading.style.display = 'flex';
+            keyDisplay.textContent = '⏳';
+            status.innerHTML = '<i class="fas fa-hourglass-half"></i> Đang chuyển hướng YouTube...';
+            status.style.color = '#70a1ff';
+            
+            // 2. Clear timeout cũ nếu có
+            if (timeoutId) clearTimeout(timeoutId);
+            
+            // 3. Mở link YouTube trong tab mới (subcribe)
+            window.open(youtubeLink.href, '_blank');
+            
+            // 4. Đợi 10 giây mới hiện key
+            timeoutId = setTimeout(() => {
+                // Random key
+                const randomIndex = Math.floor(Math.random() * KEYS.length);
+                const randomKey = KEYS[randomIndex];
+                
+                // Hiển thị key
+                keyDisplay.textContent = randomKey;
+                
+                // Cập nhật status
+                status.innerHTML = '<i class="fas fa-check-circle"></i> Đã tạo key thành công! Click vào key để copy';
+                status.style.color = '#7bed9f';
+                
+                // Ẩn loading
+                loading.style.display = 'none';
+                
+                // Enable nút
+                btn.disabled = false;
+                
+                // Auto copy key
+                navigator.clipboard.writeText(randomKey);
+                document.getElementById('copyHint').innerHTML = '<i class="fas fa-check"></i> Đã copy key vào clipboard!';
+                
+                setTimeout(() => {
+                    document.getElementById('copyHint').innerHTML = '<i class="fas fa-clipboard"></i> Click vào key để copy';
+                }, 3000);
+                
+            }, 10000); // 10 giây
+        }
+
+        // ============ HÀM COPY KEY ============
+        function copyKey() {
+            const key = document.getElementById('keyDisplay').textContent;
+            
+            if (key && key !== '**********' && key !== '⏳') {
+                navigator.clipboard.writeText(key);
+                
+                const copyHint = document.getElementById('copyHint');
+                copyHint.innerHTML = '<i class="fas fa-check"></i> Đã copy: ' + key;
+                copyHint.style.color = '#7bed9f';
+                
+                setTimeout(() => {
+                    copyHint.innerHTML = '<i class="fas fa-clipboard"></i> Click vào key để copy';
+                    copyHint.style.color = '#70a1ff';
+                }, 2000);
+            }
+        }
+
+        // ============ KHỞI TẠO ============
+        window.onload = function() {
+            console.log('✅ Key System Ready!');
+        };
+    </script>
+</body>
+</html>
