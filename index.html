@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KHANHPC KEY</title>
+    <!-- Icon tab GD.png -->
+    <link rel="icon" type="image/png" href="GD.png">
     <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -256,6 +258,17 @@
             text-align: center;
             font-size: 12px;
         }
+
+        /* Error message */
+        .error-message {
+            color: #ff6b6b;
+            font-size: 13px;
+            margin-top: 10px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
     </style>
 </head>
 <body>
@@ -284,6 +297,9 @@
                 </div>
                 <div class="copy-hint" id="copyHint">
                     <i class="fas fa-clipboard"></i> Click vào key để copy
+                </div>
+                <div class="error-message" id="errorMessage">
+                    <i class="fas fa-exclamation-triangle"></i> Không thể tải keys.json
                 </div>
             </div>
 
@@ -314,24 +330,50 @@
     </div>
 
     <script>
-        // ============ DANH SÁCH KEY ============
-        const KEYS = [
-            "ABCD1-EFGH2-IJKL3-MNOP4",
-            "QRST5-UVWX6-YZAB7-CDEF8",
-            "GHIJ9-KLMN0-OPQR1-STUV2",
-            "WXYZ3-ABCD4-EFGH5-IJKL6",
-            "MNOP7-QRST8-UVWX9-YZAB0",
-            "KHANH-PC01-AAAAA-11111",
-            "KHANH-PC02-BBBBB-22222",
-            "KHANH-PC03-CCCCC-33333",
-            "KHANH-PC04-DDDDD-44444",
-            "KHANH-PC05-EEEEE-55555"
-        ];
-
+        // ============ BIẾN TOÀN CỤC ============
+        let KEYS = []; // Sẽ được load từ keys.json
         let timeoutId = null;
+        let isLoadingKeys = false;
+
+        // ============ HÀM LOAD KEYS TỪ JSON ============
+        async function loadKeysFromJSON() {
+            try {
+                const response = await fetch('keys.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                KEYS = data.keys;
+                console.log(`✅ Đã load ${KEYS.length} keys từ keys.json`);
+                
+                // Enable nút nếu đang disable
+                document.getElementById('getKeyBtn').disabled = false;
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                return true;
+            } catch (error) {
+                console.error('❌ Lỗi load keys.json:', error);
+                KEYS = []; // Clear keys array
+                
+                // Hiển thị lỗi
+                document.getElementById('errorMessage').style.display = 'flex';
+                document.getElementById('getKeyBtn').disabled = true;
+                document.getElementById('status').innerHTML = '<i class="fas fa-exclamation-triangle"></i> Lỗi: Không thể tải keys.json';
+                document.getElementById('status').style.color = '#ff6b6b';
+                
+                return false;
+            }
+        }
 
         // ============ HÀM XỬ LÝ NÚT LẤY KEY ============
-        function handleGetKey() {
+        async function handleGetKey() {
+            // Kiểm tra nếu chưa load keys thì load ngay
+            if (KEYS.length === 0) {
+                document.getElementById('status').innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Đang tải keys...';
+                const loaded = await loadKeysFromJSON();
+                if (!loaded) return;
+            }
+
             const btn = document.getElementById('getKeyBtn');
             const loading = document.getElementById('loading');
             const status = document.getElementById('status');
@@ -353,30 +395,37 @@
             
             // 4. Đợi 10 giây mới hiện key
             timeoutId = setTimeout(() => {
-                // Random key
-                const randomIndex = Math.floor(Math.random() * KEYS.length);
-                const randomKey = KEYS[randomIndex];
-                
-                // Hiển thị key
-                keyDisplay.textContent = randomKey;
-                
-                // Cập nhật status
-                status.innerHTML = '<i class="fas fa-check-circle"></i> Đã tạo key thành công! Click vào key để copy';
-                status.style.color = '#7bed9f';
+                // Random key từ KEYS array
+                if (KEYS.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * KEYS.length);
+                    const randomKey = KEYS[randomIndex];
+                    
+                    // Hiển thị key
+                    keyDisplay.textContent = randomKey;
+                    
+                    // Cập nhật status
+                    status.innerHTML = '<i class="fas fa-check-circle"></i> Đã tạo key thành công! Click vào key để copy';
+                    status.style.color = '#7bed9f';
+                    
+                    // Auto copy key
+                    navigator.clipboard.writeText(randomKey);
+                    document.getElementById('copyHint').innerHTML = '<i class="fas fa-check"></i> Đã copy key vào clipboard!';
+                    
+                    setTimeout(() => {
+                        document.getElementById('copyHint').innerHTML = '<i class="fas fa-clipboard"></i> Click vào key để copy';
+                    }, 3000);
+                } else {
+                    // Trường hợp không có key
+                    keyDisplay.textContent = '❌ ERROR';
+                    status.innerHTML = '<i class="fas fa-times-circle"></i> Không có key nào!';
+                    status.style.color = '#ff6b6b';
+                }
                 
                 // Ẩn loading
                 loading.style.display = 'none';
                 
                 // Enable nút
                 btn.disabled = false;
-                
-                // Auto copy key
-                navigator.clipboard.writeText(randomKey);
-                document.getElementById('copyHint').innerHTML = '<i class="fas fa-check"></i> Đã copy key vào clipboard!';
-                
-                setTimeout(() => {
-                    document.getElementById('copyHint').innerHTML = '<i class="fas fa-clipboard"></i> Click vào key để copy';
-                }, 3000);
                 
             }, 10000); // 10 giây
         }
@@ -385,7 +434,7 @@
         function copyKey() {
             const key = document.getElementById('keyDisplay').textContent;
             
-            if (key && key !== '**********' && key !== '⏳') {
+            if (key && key !== '**********' && key !== '⏳' && key !== '❌ ERROR') {
                 navigator.clipboard.writeText(key);
                 
                 const copyHint = document.getElementById('copyHint');
@@ -400,8 +449,16 @@
         }
 
         // ============ KHỞI TẠO ============
-        window.onload = function() {
-            console.log('✅ Key System Ready!');
+        window.onload = async function() {
+            console.log('🔄 Đang tải keys.json...');
+            
+            // Disable nút khi bắt đầu load
+            document.getElementById('getKeyBtn').disabled = true;
+            
+            // Load keys từ JSON
+            await loadKeysFromJSON();
+            
+            console.log('✅ System Ready!');
         };
     </script>
 </body>
