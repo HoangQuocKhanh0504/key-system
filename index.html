@@ -2,12 +2,12 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHANHPC KEY</title>
-    <!-- Icon tab GD.png -->
-    <link rel="icon" type="image/png" href="GD.png">
-    <!-- Font Awesome 6 (Free) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>KHANHPC • ULTIMATE KEY SYSTEM</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts: Orbitron + Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,450 +16,695 @@
         }
 
         body {
-            background: #0a0a0f;
-            font-family: 'Segoe UI', 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            background: #0A0A0F;
+            font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Background effect */
-        .bg-effect {
-            position: absolute;
+        /* Animated Background Grid */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 70, 70, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255, 70, 70, 0.03) 0%, transparent 50%);
+            background-image: 
+                linear-gradient(rgba(255, 70, 70, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 70, 70, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Glow Orbs */
+        .glow-orb-1 {
+            position: fixed;
+            top: -30%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255, 60, 60, 0.25), transparent 70%);
+            filter: blur(80px);
+            z-index: 0;
+            animation: floatOrb 12s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            position: fixed;
+            bottom: -30%;
+            right: -20%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(255, 80, 200, 0.2), transparent 70%);
+            filter: blur(90px);
+            z-index: 0;
+            animation: floatOrb 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            50% { transform: translate(30px, -30px) scale(1.1); opacity: 0.9; }
+        }
+
+        /* Scanline Effect */
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1) 0px,
+                rgba(0, 0, 0, 0.1) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            pointer-events: none;
+            z-index: 1;
         }
 
         .container {
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 550px;
-            padding: 20px;
+            max-width: 620px;
         }
 
-        .card {
-            background: #101014;
-            border: 1.5px solid rgba(255, 70, 70, 0.5);
-            border-radius: 40px;
-            padding: 45px 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 70, 70, 0.2);
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
+        /* Main Card - Neo-Brutalist + Glassmorphism */
+        .cyber-card {
+            background: rgba(8, 8, 14, 0.65);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            border: 1px solid rgba(255, 70, 70, 0.4);
+            padding: 2.5rem 2rem;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 70, 70, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
-        .card:hover {
-            border-color: #ff4646;
-            box-shadow: 0 0 30px rgba(255, 70, 70, 0.2);
+        .cyber-card:hover {
+            border-color: #FF3A3A;
+            box-shadow: 0 35px 55px rgba(0, 0, 0, 0.7), 0 0 45px rgba(255, 70, 70, 0.35);
+            transform: translateY(-5px);
         }
 
-        /* Avatar */
-        .avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(145deg, #ff4646, #d63a3a);
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 48px;
-            color: white;
-            box-shadow: 0 10px 25px rgba(255, 70, 70, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.2);
-        }
-
-        h1 {
-            color: white;
-            font-size: 36px;
-            font-weight: 800;
+        /* Premium Header */
+        .premium-header {
             text-align: center;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .sub {
-            color: #a0a0b0;
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 15px;
-            letter-spacing: 1.5px;
-            border-bottom: 1px solid rgba(255, 70, 70, 0.3);
-            padding-bottom: 20px;
-        }
-
-        /* Key Display */
-        .key-section {
-            background: #060608;
-            border-radius: 24px;
-            padding: 25px;
             margin-bottom: 30px;
-            border: 1px solid #2a2a35;
+            position: relative;
         }
 
-        .key-label {
-            color: #ff4646;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
+        .hologram-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #FF2E2E, #8B0000);
+            border-radius: 50%;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 50, 50, 0.6), 0 0 0 4px rgba(255, 255, 255, 0.1), inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hologram-avatar::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #FF4444, #FFAAAA, #FF4444);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .hologram-avatar:hover::before {
+            opacity: 0.6;
+            filter: blur(4px);
+        }
+
+        .hologram-avatar i {
+            font-size: 58px;
+            color: white;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+            z-index: 2;
+        }
+
+        .glitch-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFFFFF, #FF9090, #FF3A3A);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFFFFF, #FF9090);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .glitch-text::before {
+            animation: glitch 0.3s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-2px, -1px);
+            opacity: 0.6;
+        }
+
+        .glitch-text::after {
+            animation: glitch 0.3s infinite reverse;
+            clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+            transform: translate(2px, 1px);
+            opacity: 0.6;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 1px); }
+            40% { transform: translate(2px, -1px); }
+            60% { transform: translate(-1px, 2px); }
+            80% { transform: translate(1px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .badge-ultimate {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            background: rgba(255, 50, 50, 0.2);
+            border: 1px solid rgba(255, 70, 70, 0.6);
+            border-radius: 60px;
+            padding: 6px 18px;
+            margin-top: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #FFAAAA;
+            backdrop-filter: blur(5px);
         }
 
-        .key-label i {
-            font-size: 16px;
+        /* Key Container - Neo */
+        .vault-section {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 36px;
+            padding: 1.8rem;
+            margin: 28px 0;
+            border: 1px solid rgba(255, 75, 75, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .key-box {
-            background: #000000;
-            border-radius: 18px;
-            padding: 20px;
-            border: 1px solid #33333f;
+        .vault-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 70, 70, 0.1), transparent);
+            animation: shimmer 8s infinite;
         }
 
-        .key-text {
-            font-family: 'Courier New', monospace;
-            font-size: 30px;
-            font-weight: 700;
-            color: #7bed9f;
+        @keyframes shimmer {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .key-locker {
+            background: #020208;
+            border-radius: 28px;
+            padding: 1.8rem 1.2rem;
+            border: 1px solid #2A2A35;
+            transition: all 0.3s;
+        }
+
+        .key-label-modern {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(255, 70, 70, 0.5);
+        }
+
+        .key-label-modern span {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #FF6B6B;
+        }
+
+        .key-value {
+            font-family: 'Courier New', 'Fira Code', monospace;
+            font-size: 1.9rem;
+            font-weight: 800;
             text-align: center;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, #C0FFD0, #7BED9F);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(123, 237, 159, 0.3);
             word-break: break-all;
-            text-shadow: 0 0 8px rgba(123, 237, 159, 0.3);
-            padding: 5px;
-            background: #0c0c10;
-            border-radius: 12px;
-            border: 1px dashed #7bed9f;
             cursor: pointer;
-            transition: 0.2s;
+            padding: 15px;
+            border-radius: 20px;
+            transition: all 0.2s;
+            background-color: #0B0B10;
+            border: 1px solid #2CAA5E;
         }
 
-        .key-text:hover {
-            background: #111116;
-            border-color: #ff4646;
+        .key-value:hover {
+            background: #11121A;
+            transform: scale(1.01);
+            border-color: #FF5E5E;
+            letter-spacing: 6px;
         }
 
-        .copy-hint {
-            color: #70a1ff;
-            font-size: 13px;
-            margin-top: 15px;
-            text-align: center;
+        .copy-indicator {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            opacity: 0.9;
+            gap: 8px;
+            margin-top: 16px;
+            font-size: 0.7rem;
+            color: #6B6B8A;
+            font-weight: 500;
         }
 
-        /* Button */
-        .btn-youtube {
-            background: #ff4646;
-            color: white;
-            border: none;
-            border-radius: 60px;
-            padding: 20px 30px;
+        /* ULTRA BUTTON */
+        .btn-ultimate {
             width: 100%;
-            font-size: 24px;
-            font-weight: 700;
+            background: linear-gradient(95deg, #E63E3E, #B81A1A);
+            border: none;
+            padding: 1.3rem;
+            border-radius: 60px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            cursor: pointer;
+            transition: all 0.15s linear;
+            box-shadow: 0 10px 0 0 #6E0E0E;
+            margin: 20px 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-ultimate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-ultimate:hover::before {
+            left: 100%;
+        }
+
+        .btn-ultimate:active {
+            transform: translateY(4px);
+            box-shadow: 0 6px 0 0 #6E0E0E;
+        }
+
+        .btn-ultimate:disabled {
+            opacity: 0.65;
+            transform: translateY(0);
+            filter: grayscale(0.2);
+            cursor: not-allowed;
+        }
+
+        /* Loading Module */
+        .loading-hud {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            cursor: pointer;
-            transition: 0.25s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 20px;
-            box-shadow: 0 8px 0 #a12a2a;
-            position: relative;
-            top: 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50px;
+            padding: 12px 20px;
+            margin: 15px 0;
+            border: 1px solid #FF4545;
         }
 
-        .btn-youtube i {
-            font-size: 32px;
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background: #FF3A3A;
+            border-radius: 50%;
+            animation: pulseRed 1.2s infinite;
         }
 
-        .btn-youtube:hover {
-            background: #ff5e5e;
-            transform: translateY(-3px);
-            box-shadow: 0 11px 0 #a12a2a;
+        @keyframes pulseRed {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 70, 70, 0.7);}
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 0 8px rgba(255, 70, 70, 0);}
         }
 
-        .btn-youtube:active {
-            transform: translateY(8px);
-            box-shadow: 0 0px 0 #a12a2a;
-        }
-
-        .btn-youtube:disabled {
-            opacity: 0.6;
-            transform: translateY(5px);
-            box-shadow: 0 3px 0 #a12a2a;
-            cursor: not-allowed;
-        }
-
-        /* Loading */
-        .loading {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 10px;
-            color: #70a1ff;
-            font-size: 18px;
-        }
-
-        .loading i {
-            animation: spin 1s linear infinite;
-            font-size: 24px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Status */
-        .status {
-            margin-top: 25px;
-            padding: 15px;
-            border-radius: 40px;
-            text-align: center;
-            font-size: 15px;
-            font-weight: 600;
-            background: rgba(20, 20, 30, 0.7);
-            color: #a0a0b0;
-            border: 1px solid #2a2a35;
+        /* Status Terminal */
+        .status-terminal {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 30px;
+            padding: 14px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', monospace;
+            border-left: 3px solid #FF3A3A;
+            color: #AFAFCF;
         }
 
-        .status i {
-            color: #70a1ff;
+        .footer-cyber {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 28px;
+            font-size: 0.65rem;
+            color: #4A4A62;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 30px;
-            color: #5a5a6a;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        /* Error message */
-        .error-message {
-            color: #ff6b6b;
-            font-size: 13px;
-            margin-top: 10px;
+        .error-card {
             display: none;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 10px;
+            background: rgba(255, 50, 50, 0.15);
+            border-radius: 30px;
+            padding: 12px;
+            margin: 12px 0 0;
+            font-size: 0.75rem;
+            color: #FFA0A0;
+            border: 1px solid #FF5555;
         }
     </style>
 </head>
 <body>
-    <div class="bg-effect"></div>
-    
+    <div class="grid-bg"></div>
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="scanline"></div>
+
     <div class="container">
-        <div class="card">
-            <!-- Avatar -->
-            <div class="avatar">
-                <i class="fas fa-skull"></i>
+        <div class="cyber-card">
+            <div class="premium-header">
+                <div class="hologram-avatar">
+                    <i class="fas fa-dragon"></i>
+                </div>
+                <h1 class="glitch-text" data-text="KHANHPC">KHANHPC</h1>
+                <div class="badge-ultimate">
+                    <i class="fas fa-skull"></i> ELITE ACCESS <i class="fas fa-bolt"></i>
+                </div>
             </div>
 
-            <!-- Title -->
-            <h1>KHANHPC</h1>
-            <div class="sub">PREMIUM HACK</div>
-
-            <!-- Key Display -->
-            <div class="key-section">
-                <div class="key-label">
-                    <i class="fas fa-key"></i> KEY GENERATOR
-                </div>
-                <div class="key-box">
-                    <div class="key-text" id="keyDisplay" onclick="copyKey()">
-                        **********
+            <!-- Vault Key -->
+            <div class="vault-section">
+                <div class="key-locker">
+                    <div class="key-label-modern">
+                        <span><i class="fas fa-fingerprint"></i> DECRYPTION TOKEN</span>
+                        <span>✦ LIFETIME ✦</span>
+                    </div>
+                    <div class="key-value" id="secretKeyDisplay">
+                        ██████████
+                    </div>
+                    <div class="copy-indicator" id="copyNotif">
+                        <i class="fa-regular fa-clipboard"></i> click vào key để sao chép mã
                     </div>
                 </div>
-                <div class="copy-hint" id="copyHint">
-                    <i class="fas fa-clipboard"></i> Click vào key để copy
-                </div>
-                <div class="error-message" id="errorMessage">
-                    <i class="fas fa-exclamation-triangle"></i> Không thể tải keys.json
+                <div class="error-card" id="errorAlert">
+                    <i class="fas fa-skull-crossbones"></i> keys.json không tồn tại hoặc lỗi cấu trúc
                 </div>
             </div>
 
-            <!-- Loading -->
-            <div class="loading" id="loading">
-                <i class="fas fa-spinner"></i> ĐANG TẠO KEY, VUI LÒNG CHỜ...
+            <!-- Loading state -->
+            <div id="loadingOverlay" style="display: none;">
+                <div class="loading-hud">
+                    <div class="pulse-dot"></div>
+                    <span style="color:#FFAFAF; font-weight: 600;"><i class="fas fa-sync-alt fa-spin"></i> GENERATING SECURE TOKEN ...</span>
+                    <span style="color:#FF6B6B; font-size:12px;">10s</span>
+                </div>
             </div>
 
-            <!-- YouTube Button -->
-            <a href="https://www.youtube.com/channel/UCEShobjY7yHzJ3Wardfdd4A?sub_confirmation=1" 
-               target="_blank" 
-               id="youtubeLink" 
-               style="display: none;">
-            </a>
-            <button class="btn-youtube" id="getKeyBtn" onclick="handleGetKey()">
-                <i class="fab fa-youtube"></i> LẤY KEY
+            <!-- Action Button -->
+            <button class="btn-ultimate" id="unlockBtn">
+                <i class="fab fa-youtube"></i> UNLOCK KEY
+                <i class="fas fa-caret-right"></i>
             </button>
 
-            <!-- Status -->
-            <div class="status" id="status">
-                <i class="fas fa-info-circle"></i> Nhấn "LẤY KEY" để nhận key từ server
+            <!-- Status Area -->
+            <div class="status-terminal" id="globalStatus">
+                <i class="fas fa-shield-haltered"></i> 
+                <span>STANDBY // Nhấn UNLOCK để nhận key premium</span>
             </div>
-            
-            <div class="footer">
-                <i class="fas fa-shield-alt"></i> 1 Key/dùng trọn đời
+
+            <div class="footer-cyber">
+                <i class="fas fa-microchip"></i> ENCRYPTED BY KHANHPC 
+                <i class="fas fa-key"></i> 1 KEY / VĨNH VIỄN
             </div>
         </div>
     </div>
 
     <script>
-        // ============ BIẾN TOÀN CỤC ============
-        let KEYS = []; // Sẽ được load từ keys.json
-        let timeoutId = null;
-        let isLoadingKeys = false;
+        (function() {
+            // --------------------------------------------------------------
+            // HIGH-TECH KEY GENERATOR SYSTEM
+            let keyRepository = [];     // Lưu keys từ keys.json
+            let actionTimeout = null;
+            let isBusy = false;
 
-        // ============ HÀM LOAD KEYS TỪ JSON ============
-        async function loadKeysFromJSON() {
-            try {
-                const response = await fetch('keys.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                KEYS = data.keys;
-                console.log(`✅ Đã load ${KEYS.length} keys từ keys.json`);
-                
-                // Enable nút nếu đang disable
-                document.getElementById('getKeyBtn').disabled = false;
-                document.getElementById('errorMessage').style.display = 'none';
-                
-                return true;
-            } catch (error) {
-                console.error('❌ Lỗi load keys.json:', error);
-                KEYS = []; // Clear keys array
-                
-                // Hiển thị lỗi
-                document.getElementById('errorMessage').style.display = 'flex';
-                document.getElementById('getKeyBtn').disabled = true;
-                document.getElementById('status').innerHTML = '<i class="fas fa-exclamation-triangle"></i> Lỗi: Không thể tải keys.json';
-                document.getElementById('status').style.color = '#ff6b6b';
-                
-                return false;
-            }
-        }
+            // DOM Elements
+            const keyDisplayEl = document.getElementById('secretKeyDisplay');
+            const copyHintEl = document.getElementById('copyNotif');
+            const unlockButton = document.getElementById('unlockBtn');
+            const loadingDiv = document.getElementById('loadingOverlay');
+            const statusDiv = document.getElementById('globalStatus');
+            const errorAlertDiv = document.getElementById('errorAlert');
 
-        // ============ HÀM XỬ LÝ NÚT LẤY KEY ============
-        async function handleGetKey() {
-            // Kiểm tra nếu chưa load keys thì load ngay
-            if (KEYS.length === 0) {
-                document.getElementById('status').innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Đang tải keys...';
-                const loaded = await loadKeysFromJSON();
-                if (!loaded) return;
-            }
-
-            const btn = document.getElementById('getKeyBtn');
-            const loading = document.getElementById('loading');
-            const status = document.getElementById('status');
-            const keyDisplay = document.getElementById('keyDisplay');
-            const youtubeLink = document.getElementById('youtubeLink');
-            
-            // 1. Disable nút, hiện loading
-            btn.disabled = true;
-            loading.style.display = 'flex';
-            keyDisplay.textContent = '⏳';
-            status.innerHTML = '<i class="fas fa-hourglass-half"></i> Đang chuyển hướng YouTube...';
-            status.style.color = '#70a1ff';
-            
-            // 2. Clear timeout cũ nếu có
-            if (timeoutId) clearTimeout(timeoutId);
-            
-            // 3. Mở link YouTube trong tab mới (subcribe)
-            window.open(youtubeLink.href, '_blank');
-            
-            // 4. Đợi 10 giây mới hiện key
-            timeoutId = setTimeout(() => {
-                // Random key từ KEYS array
-                if (KEYS.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * KEYS.length);
-                    const randomKey = KEYS[randomIndex];
-                    
-                    // Hiển thị key
-                    keyDisplay.textContent = randomKey;
-                    
-                    // Cập nhật status
-                    status.innerHTML = '<i class="fas fa-check-circle"></i> Đã tạo key thành công! Click vào key để copy';
-                    status.style.color = '#7bed9f';
-                    
-                    // Auto copy key
-                    navigator.clipboard.writeText(randomKey);
-                    document.getElementById('copyHint').innerHTML = '<i class="fas fa-check"></i> Đã copy key vào clipboard!';
-                    
-                    setTimeout(() => {
-                        document.getElementById('copyHint').innerHTML = '<i class="fas fa-clipboard"></i> Click vào key để copy';
-                    }, 3000);
+            // Helper: cập nhật status
+            function updateStatus(msg, isError = false, icon = "fa-circle-info") {
+                statusDiv.innerHTML = `<i class="fas ${icon}"></i> <span>${msg}</span>`;
+                if (isError) {
+                    statusDiv.style.borderLeftColor = "#FF6B6B";
+                    statusDiv.style.color = "#FFB0B0";
                 } else {
-                    // Trường hợp không có key
-                    keyDisplay.textContent = '❌ ERROR';
-                    status.innerHTML = '<i class="fas fa-times-circle"></i> Không có key nào!';
-                    status.style.color = '#ff6b6b';
+                    statusDiv.style.borderLeftColor = "#FF3A3A";
+                    statusDiv.style.color = "#AFAFCF";
                 }
-                
-                // Ẩn loading
-                loading.style.display = 'none';
-                
-                // Enable nút
-                btn.disabled = false;
-                
-            }, 10000); // 10 giây
-        }
-
-        // ============ HÀM COPY KEY ============
-        function copyKey() {
-            const key = document.getElementById('keyDisplay').textContent;
-            
-            if (key && key !== '**********' && key !== '⏳' && key !== '❌ ERROR') {
-                navigator.clipboard.writeText(key);
-                
-                const copyHint = document.getElementById('copyHint');
-                copyHint.innerHTML = '<i class="fas fa-check"></i> Đã copy: ' + key;
-                copyHint.style.color = '#7bed9f';
-                
-                setTimeout(() => {
-                    copyHint.innerHTML = '<i class="fas fa-clipboard"></i> Click vào key để copy';
-                    copyHint.style.color = '#70a1ff';
-                }, 2000);
             }
-        }
 
-        // ============ KHỞI TẠO ============
-        window.onload = async function() {
-            console.log('🔄 Đang tải keys.json...');
+            // Hiển thị lỗi keys.json
+            function handleFileError(show) {
+                if (show) {
+                    errorAlertDiv.style.display = "flex";
+                    unlockButton.disabled = true;
+                    keyDisplayEl.textContent = "⚠️ ERROR ⚠️";
+                    keyDisplayEl.style.background = "#1A0A0A";
+                    keyDisplayEl.style.borderColor = "#FF4444";
+                    updateStatus("CRITICAL: Không thể tải keys.json, kiểm tra file!", true, "fa-exclamation-triangle");
+                } else {
+                    errorAlertDiv.style.display = "none";
+                    if (keyRepository.length > 0) unlockButton.disabled = false;
+                }
+            }
+
+            // Load keys from keys.json
+            async function fetchKeysFromServer() {
+                try {
+                    const response = await fetch(`keys.json?nocache=${Date.now()}`);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const jsonData = await response.json();
+                    if (jsonData && Array.isArray(jsonData.keys) && jsonData.keys.length > 0) {
+                        keyRepository = jsonData.keys;
+                        console.log(`[KHANHPC] ✅ Loaded ${keyRepository.length} premium keys`);
+                        handleFileError(false);
+                        updateStatus(`✔ SYSTEM READY // ${keyRepository.length} keys available`, false, "fa-check-circle");
+                        unlockButton.disabled = false;
+                        return true;
+                    } else {
+                        throw new Error("Invalid keys structure");
+                    }
+                } catch (err) {
+                    console.error("[KHANHPC] Lỗi keys.json:", err);
+                    keyRepository = [];
+                    handleFileError(true);
+                    updateStatus("FATAL: keys.json missing or malformed", true, "fa-database");
+                    return false;
+                }
+            }
+
+            // Random key từ repository
+            function getRandomSecretKey() {
+                if (!keyRepository.length) return null;
+                const randomIdx = Math.floor(Math.random() * keyRepository.length);
+                return keyRepository[randomIdx];
+            }
+
+            // Copy key sang clipboard + hiệu ứng đẹp
+            async function copyKeyToClipboard() {
+                const currentKeyRaw = keyDisplayEl.textContent;
+                if (!currentKeyRaw || currentKeyRaw.includes("█") || currentKeyRaw.includes("⚠️") || currentKeyRaw === "⏳ LOADING..." || currentKeyRaw.includes("ERROR")) {
+                    copyHintEl.innerHTML = `<i class="fas fa-ban"></i> Chưa có key hợp lệ!`;
+                    copyHintEl.style.color = "#FF8888";
+                    setTimeout(() => {
+                        copyHintEl.innerHTML = `<i class="fa-regular fa-clipboard"></i> click vào key để sao chép mã`;
+                        copyHintEl.style.color = "#6B6B8A";
+                    }, 1500);
+                    return;
+                }
+                try {
+                    await navigator.clipboard.writeText(currentKeyRaw);
+                    copyHintEl.innerHTML = `<i class="fas fa-check-circle"></i> ĐÃ COPY: ${currentKeyRaw.substring(0, 12)}...`;
+                    copyHintEl.style.color = "#A5FFD6";
+                    setTimeout(() => {
+                        copyHintEl.innerHTML = `<i class="fa-regular fa-clipboard"></i> click vào key để sao chép mã`;
+                        copyHintEl.style.color = "#6B6B8A";
+                    }, 2800);
+                } catch (err) {
+                    copyHintEl.innerHTML = `<i class="fas fa-times"></i> Lỗi copy thủ công`;
+                }
+            }
+
+            // Hàm xử lý chính lấy key - siêu đẹp mắt + YouTube redirect & delay 10s
+            async function initiateUltimateKeyFetch() {
+                if (isBusy) {
+                    updateStatus("Hệ thống đang xử lý, chờ 10s...", false, "fa-hourglass-half");
+                    return;
+                }
+
+                // Kiểm tra nếu chưa có key thì thử reload keys.json
+                if (keyRepository.length === 0) {
+                    updateStatus("Đang tải lại kho key...", false, "fa-spinner fa-pulse");
+                    const loaded = await fetchKeysFromServer();
+                    if (!loaded || keyRepository.length === 0) {
+                        updateStatus("Không thể tải key, liên hệ support", true, "fa-skull");
+                        return;
+                    }
+                }
+
+                if (actionTimeout) clearTimeout(actionTimeout);
+                isBusy = true;
+                unlockButton.disabled = true;
+                loadingDiv.style.display = "block";
+                
+                // Hiệu ứng thông báo & mở YouTube subscribe
+                updateStatus("🔗 Mở YouTube & xác thực người dùng...", false, "fa-brands fa-youtube");
+                const youtubeSubUrl = "https://www.youtube.com/channel/UCEShobjY7yHzJ3Wardfdd4A?sub_confirmation=1";
+                window.open(youtubeSubUrl, "_blank");
+                
+                // Thay đổi key display tạm thời
+                keyDisplayEl.textContent = "⏳ LOADING...";
+                keyDisplayEl.style.letterSpacing = "2px";
+                keyDisplayEl.style.background = "#15151F";
+                
+                let countdown = 10;
+                const intervalTimer = setInterval(() => {
+                    if (countdown > 0 && isBusy) {
+                        updateStatus(`🎬 Xác minh thành công • Tạo key sau ${countdown}s`, false, "fa-clock");
+                        countdown--;
+                    } else {
+                        clearInterval(intervalTimer);
+                    }
+                }, 1000);
+                
+                // Timeout 10 giây -> tạo key real
+                actionTimeout = setTimeout(() => {
+                    clearInterval(intervalTimer);
+                    const generatedKey = getRandomSecretKey();
+                    
+                    if (generatedKey) {
+                        keyDisplayEl.textContent = generatedKey;
+                        keyDisplayEl.style.letterSpacing = "4px";
+                        keyDisplayEl.style.background = "#0A0E12";
+                        keyDisplayEl.style.borderColor = "#7BED9F";
+                        keyDisplayEl.style.color = "#C3FFDA";
+                        updateStatus("✔ KEY GENERATED! Click vào key để copy & kích hoạt ngay", false, "fa-gem");
+                        // auto copy ngay lập tức
+                        navigator.clipboard.writeText(generatedKey).catch(()=>{});
+                        copyHintEl.innerHTML = `<i class="fas fa-crown"></i> Đã tự động copy vào bộ nhớ!`;
+                        copyHintEl.style.color = "#D4FFB0";
+                        setTimeout(() => {
+                            copyHintEl.innerHTML = `<i class="fa-regular fa-clipboard"></i> click vào key để sao chép mã`;
+                            copyHintEl.style.color = "#6B6B8A";
+                        }, 3500);
+                    } else {
+                        keyDisplayEl.textContent = "❌ NULL KEY";
+                        keyDisplayEl.style.color = "#FF7A7A";
+                        updateStatus("LỖI: Không tìm thấy key trong repository", true, "fa-exclamation");
+                    }
+                    
+                    loadingDiv.style.display = "none";
+                    unlockButton.disabled = false;
+                    isBusy = false;
+                    actionTimeout = null;
+                }, 10000);
+            }
             
-            // Disable nút khi bắt đầu load
-            document.getElementById('getKeyBtn').disabled = true;
+            // Event listeners
+            unlockButton.addEventListener('click', () => {
+                if (unlockButton.disabled && !isBusy && keyRepository.length === 0) {
+                    fetchKeysFromServer().then(success => {
+                        if (success) initiateUltimateKeyFetch();
+                    });
+                    return;
+                }
+                initiateUltimateKeyFetch();
+            });
             
-            // Load keys từ JSON
-            await loadKeysFromJSON();
+            keyDisplayEl.addEventListener('click', copyKeyToClipboard);
             
-            console.log('✅ System Ready!');
-        };
+            // Khởi tạo ngay khi load trang
+            async function bootstrap() {
+                unlockButton.disabled = true;
+                updateStatus("Đang tải cơ sở dữ liệu mã nguồn...", false, "fa-spinner fa-pulse");
+                await fetchKeysFromServer();
+                if (keyRepository.length === 0) {
+                    keyDisplayEl.textContent = "⚠️ NO KEYS";
+                } else {
+                    keyDisplayEl.textContent = "█✧█✧█✧█✧█";
+                    keyDisplayEl.style.letterSpacing = "3px";
+                }
+            }
+            bootstrap();
+        })();
     </script>
 </body>
 </html>
